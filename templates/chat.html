@@ -2,9 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../assets/css/styles.css">
     <title>Title</title>
 </head>
 <body>
-    Let's Chat! (from template!)
+    <div class="main_display">
+        <form id="chatterbox" onsubmit="return false">
+            <textarea id="client_message"></textarea>
+            <input id="client_submit" type="submit" value="Send"/>
+        </form>
+
+        <ul id="messageboard">
+        </ul>
+    </div>
+    <script src="../assets/js/jquery-2.1.4.js"></script>
+    <script src="../assets/js/bootstrap.js"></script>
+    <script src="../assets/js/chatterbox.js"></script>
 </body>
 </html>

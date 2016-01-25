@@ -27,8 +27,8 @@ type room struct {
 }
 
 
-func (r *room) ServeHTTP(w http.ResponseWriter, r *http.Request){
-	socket, err := upgrader.Upgrade(w, r, nil)
+func (r *room) ServeHTTP(w http.ResponseWriter, req *http.Request){
+	socket, err := upgrader.Upgrade(w, req, nil)
 	if err != nil {
 		log.Fatal("ServeHTTP:", err)
 		return
@@ -37,7 +37,7 @@ func (r *room) ServeHTTP(w http.ResponseWriter, r *http.Request){
 	client := &client{
 		socket: socket,
 		send: make(chan []byte, msgBufferSize),
-		room: r
+		room: r,
 	}
 
 	r.join <- client
